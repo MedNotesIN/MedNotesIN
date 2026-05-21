@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Smooth transition for Modal */
         .modal-active {
             opacity: 1 !important;
             pointer-events: auto !important;
@@ -19,27 +18,28 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans relative">
+<body class="bg-slate-50 text-slate-800 font-sans relative antialiased">
 
-    <header class="bg-white border-b border-slate-100 sticky top-0 z-50">
+    <header class="bg-white border-b border-slate-100 sticky top-0 z-50 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-                <div class="bg-teal-600 text-white p-2 rounded-lg flex items-center justify-center">
+                <div class="bg-teal-600 text-white p-2 rounded-lg flex items-center justify-center shadow-xs">
                     <i class="fa-solid fa-book-open text-lg"></i>
                 </div>
                 <span class="text-xl font-bold text-slate-900">MedNotes<span class="text-orange-500">IN</span></span>
             </div>
             
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="#" class="text-teal-600 hover:text-teal-700">Home</a>
-                <a href="#" class="hover:text-teal-600 transition">Categories</a>
-                <a href="#" class="hover:text-teal-600 transition">About</a>
+                <a href="#" class="text-teal-600 hover:text-teal-700 transition">Home</a>
+                <a href="#categories" class="hover:text-teal-600 transition">Categories</a>
+                <a href="#features" class="hover:text-teal-600 transition">Features</a>
+                <a href="#about" class="hover:text-teal-600 transition">About</a>
                 <a href="#" class="hover:text-teal-600 transition">Contact</a>
             </nav>
 
             <div class="flex items-center space-x-4">
                 <button onclick="openLoginModal('student')" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition cursor-pointer">Sign In</button>
-                <button onclick="openLoginModal('student')" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-sm transition cursor-pointer">Get Started</button>
+                <button onclick="openLoginModal('student')" class="bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium px-4 py-2 rounded-lg shadow-xs transition cursor-pointer">Get Started</button>
                 <button onclick="openLoginModal('admin')" class="text-xs text-slate-400 hover:text-slate-600 underline ml-2 cursor-pointer">Admin Panel</button>
             </div>
         </div>
@@ -51,9 +51,9 @@
             <span>Trusted by 50,000+ Pharmacy Professionals</span>
         </div>
         
-        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Your Complete <br class="hidden sm:inline">
-            <span class="text-teal-600">Pharmacy</span> <span class="text-blue-600">Knowledge</span> <br>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Your Complete <br>
+            <span class="text-emerald-600">Pharmacy</span> <span class="text-blue-600">Knowledge</span> <br>
             <span class="text-orange-500">Hub</span>
         </h1>
         
@@ -62,11 +62,11 @@
         </p>
 
         <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <button onclick="openLoginModal('student')" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-medium px-6 py-3 rounded-lg shadow-md transition flex items-center justify-center space-x-2 cursor-pointer">
+            <button onclick="openLoginModal('student')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-6 py-3 rounded-lg shadow-md transition flex items-center justify-center space-x-2 cursor-pointer">
                 <span>Start Learning Free</span>
                 <i class="fa-solid fa-arrow-right text-sm"></i>
             </button>
-            <a href="#" class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium px-6 py-3 rounded-lg shadow-sm transition text-center">
+            <a href="#categories" class="w-full sm:w-auto bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium px-6 py-3 rounded-lg shadow-xs transition text-center">
                 Browse Notes
             </a>
         </div>
@@ -74,182 +74,110 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 border-t border-slate-200 pt-10">
             <div>
                 <p class="text-3xl font-bold text-slate-900">50,000+</p>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Active Users</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Active Users</p>
             </div>
             <div>
                 <p class="text-3xl font-bold text-slate-900">15,000+</p>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Notes Available</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Notes Available</p>
             </div>
             <div>
                 <p class="text-3xl font-bold text-slate-900">500+</p>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Expert Contributors</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Expert Contributors</p>
             </div>
             <div>
                 <p class="text-3xl font-bold text-slate-900">200+</p>
-                <p class="text-xs text-slate-500 mt-1 font-medium">Universities</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Universities</p>
             </div>
         </div>
     </section>
 
-    <div id="loginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden border border-slate-100 transform transition-transform duration-300 scale-95 max-h-[90vh] flex flex-col">
-            
-            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-                <div>
-                    <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved text-teal-600"></i>
-                        <span>MedNotesIN Account Secure Gateway</span>
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Select user type to proceed further</p>
-                </div>
-                <button onclick="closeLoginModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-200 cursor-pointer">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <div class="flex border-b border-slate-100 text-sm font-semibold text-slate-500 bg-white">
-                <button id="studentTabBtn" onclick="switchRole('student')" class="flex-1 py-3 text-center border-b-2 border-transparent hover:text-teal-600 transition cursor-pointer">
-                    <i class="fa-solid fa-user-graduate mr-1.5"></i>Student Login
-                </button>
-                <button id="adminTabBtn" onclick="switchRole('admin')" class="flex-1 py-3 text-center border-b-2 border-transparent hover:text-teal-600 transition cursor-pointer">
-                    <i class="fa-solid fa-user-gear mr-1.5"></i>Admin Panel
-                </button>
-            </div>
-
-            <div class="p-6 overflow-y-auto flex-1">
-                
-                <div id="studentLoginInterface" class="hidden space-y-5">
-                    <div class="text-center mb-2">
-                        <p class="text-sm font-medium text-slate-600">Sign in instantly via safe login options</p>
-                    </div>
-
-                    <button class="w-full flex items-center justify-center space-x-3 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-medium py-2.5 px-4 rounded-xl shadow-xs transition cursor-pointer">
-                        <svg class="w-5 h-5" viewBox="0 0 24 24">
-                            <path fill="#EA4335" d="M12 5.04c1.64 0 3.12.56 4.28 1.67l3.2-3.2C17.52 1.58 14.96 1 12 1 7.35 1 3.4 3.65 1.5 7.5l3.6 2.8C6.01 7.12 8.78 5.04 12 5.04z"/>
-                            <path fill="#4285F4" d="M23.5 12.25c0-.82-.07-1.6-.22-2.35H12v4.45h6.45c-.28 1.48-1.12 2.73-2.38 3.58l3.68 2.85c2.14-1.98 3.75-4.9 3.75-8.53z"/>
-                            <path fill="#FBBC05" d="M5.1 14.7c-.24-.72-.38-1.49-.38-2.3s.14-1.58.38-2.3L1.5 7.3C.54 9.2 0 11.3 0 13.5s.54 4.3 1.5 6.2l3.6-2.92z"/>
-                            <path fill="#34A853" d="M12 23c3.24 0 5.97-1.08 7.96-2.92l-3.68-2.85c-1.02.68-2.33 1.1-4.28 1.1-3.22 0-6-2.08-6.98-5.26l-3.6 2.8C3.4 20.35 7.35 23 12 23z"/>
-                        </svg>
-                        <span>Continue with Google</span>
-                    </button>
-
-                    <div class="relative flex py-2 items-center text-xs text-slate-400 uppercase">
-                        <div class="flex-grow border-t border-slate-100"></div>
-                        <span class="flex-shrink mx-3">Or Login via OTP</span>
-                        <div class="flex-grow border-t border-slate-100"></div>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Enter Mobile Number or Email</label>
-                            <div class="relative">
-                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400 text-sm">
-                                    <i id="inputIcon animate-pulse" class="fa-solid fa-address-card text-teal-600"></i>
-                                </span>
-                                <input type="text" id="studentContactInput" placeholder="e.g. +91 9876543210 or name@email.com" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl pl-9 pr-24 py-2.5 focus:border-teal-500 focus:bg-white focus:outline-hidden transition">
-                                <button onclick="triggerOtpSent()" class="absolute right-1.5 top-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition shadow-xs cursor-pointer">
-                                    Get OTP
-                                </button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Or via Student Roll Number / Unique ID</label>
-                            <input type="text" placeholder="Enter Registration / Roll No" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3 py-2.5 focus:border-teal-500 focus:bg-white focus:outline-hidden transition">
-                        </div>
-
-                        <div id="otpInputBlock" class="hidden p-3 bg-teal-50 border border-teal-100 rounded-xl space-y-2 animate-fadeIn">
-                            <div class="flex justify-between items-center">
-                                <label class="block text-xs font-bold uppercase text-teal-800">Enter 4-Digit Verification OTP</label>
-                                <span class="text-[10px] bg-teal-200 text-teal-800 px-1.5 py-0.5 rounded-sm font-mono font-bold">OTP Sent!</span>
-                            </div>
-                            <div class="flex space-x-3 justify-center py-1">
-                                <input type="text" maxlength="1" class="w-10 h-10 bg-white border border-slate-200 text-center text-lg font-bold rounded-lg focus:border-teal-500 focus:outline-hidden">
-                                <input type="text" maxlength="1" class="w-10 h-10 bg-white border border-slate-200 text-center text-lg font-bold rounded-lg focus:border-teal-500 focus:outline-hidden">
-                                <input type="text" maxlength="1" class="w-10 h-10 bg-white border border-slate-200 text-center text-lg font-bold rounded-lg focus:border-teal-500 focus:outline-hidden">
-                                <input type="text" maxlength="1" class="w-10 h-10 bg-white border border-slate-200 text-center text-lg font-bold rounded-lg focus:border-teal-500 focus:outline-hidden">
-                            </div>
-                        </div>
-
-                        <button onclick="alert('Student Authenticated Successfully!')" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition cursor-pointer mt-2">
-                            Verify & Proceed to Hub
-                        </button>
-                    </div>
-
-                    <p class="text-[11px] text-slate-400 text-center leading-relaxed mt-4">
-                        By logging in, you agree to MedNotesIN terms of verification policies. Standard data rates apply for SMS OTP services.
-                    </p>
-                </div>
-
-                <div id="adminLoginInterface" class="hidden space-y-4">
-                    <div class="text-center mb-2">
-                        <span class="bg-amber-50 text-amber-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase border border-amber-100">Authorized Personnel Only</span>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Admin Security Email</label>
-                        <input type="email" placeholder="admin@mednotes.in" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3 py-2.5 focus:border-teal-500 focus:bg-white focus:outline-hidden transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Secret Master Password</label>
-                        <input type="password" placeholder="••••••••••••" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3 py-2.5 focus:border-teal-500 focus:bg-white focus:outline-hidden transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">Security Firewall Token Key</label>
-                        <input type="text" placeholder="Token-XYZ-789" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl px-3 py-2.5 font-mono text-xs focus:border-teal-500 focus:bg-white focus:outline-hidden transition">
-                    </div>
-
-                    <button onclick="alert('Admin Firewall Rules Verified. Access Granted!')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-2.5 px-4 rounded-xl shadow-md transition cursor-pointer mt-2">
-                        Verify Secure Credentials
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <hr class="border-slate-200 max-w-7xl mx-auto my-6">
-
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section id="categories" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200/60">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
-                <div class="h-1.5 bg-teal-500"></div>
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                <div class="h-1.5 bg-emerald-500"></div>
                 <div class="p-6 flex-1">
-                    <div class="text-teal-600 bg-teal-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-pills"></i></div>
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-pills text-base"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Pharmacology</h3>
-                    <p class="text-sm text-slate-500 mt-1">Drug mechanisms, interactions, and therapeutic uses.</p>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Drug mechanisms, interactions, and therapeutic uses.</p>
                 </div>
-                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs text-slate-400">
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
                     <span>156 Notes</span>
-                    <button onclick="openLoginModal('student')" class="text-teal-600 hover:text-teal-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
                         <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
                 <div class="h-1.5 bg-sky-500"></div>
                 <div class="p-6 flex-1">
-                    <div class="text-sky-600 bg-sky-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-user-doctor"></i></div>
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-user-doctor text-base"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Clinical Pharmacy</h3>
-                    <p class="text-sm text-slate-500 mt-1">Patient care, medication therapy management.</p>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Patient care, medication therapy management.</p>
                 </div>
-                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs text-slate-400">
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
                     <span>98 Notes</span>
-                    <button onclick="openLoginModal('student')" class="text-teal-600 hover:text-teal-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
                         <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
             </div>
-            <div class="bg-white rounded-xl border border-slate-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
-                <div class="h-1.5 bg-amber-500"></div>
+
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                <div class="h-1.5 bg-orange-500"></div>
                 <div class="p-6 flex-1">
-                    <div class="text-amber-600 bg-amber-50 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-flask"></i></div>
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-flask text-base"></i></div>
                     <h3 class="text-lg font-bold text-slate-900">Pharmaceutical Chemistry</h3>
-                    <p class="text-sm text-slate-500 mt-1">Drug synthesis, analysis, and formulation.</p>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Drug synthesis, analysis, and formulation.</p>
                 </div>
-                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs text-slate-400">
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
                     <span>142 Notes</span>
-                    <button onclick="openLoginModal('student')" class="text-teal-600 hover:text-teal-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                <div class="h-1.5 bg-emerald-500"></div>
+                <div class="p-6 flex-1">
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-leaf text-base"></i></div>
+                    <h3 class="text-lg font-bold text-slate-900">Pharmacognosy</h3>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Natural products and herbal medicine.</p>
+                </div>
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
+                    <span>87 Notes</span>
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                <div class="h-1.5 bg-blue-500"></div>
+                <div class="p-6 flex-1">
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-book text-base"></i></div>
+                    <h3 class="text-lg font-bold text-slate-900">Drug Information</h3>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Evidence-based medicine and resources.</p>
+                </div>
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
+                    <span>124 Notes</span>
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
+                        <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200/60 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                <div class="h-1.5 bg-rose-500"></div>
+                <div class="p-6 flex-1">
+                    <div class="text-slate-700 bg-slate-50 border border-slate-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4"><i class="fa-solid fa-triangle-exclamation text-base"></i></div>
+                    <h3 class="text-lg font-bold text-slate-900">Toxicology</h3>
+                    <p class="text-sm text-slate-500 mt-1 leading-relaxed">Adverse effects and poison management.</p>
+                </div>
+                <div class="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-medium text-slate-400">
+                    <span>73 Notes</span>
+                    <button class="text-emerald-600 hover:text-emerald-700 font-semibold flex items-center space-x-1 cursor-pointer">
                         <span>Explore</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </button>
                 </div>
@@ -257,49 +185,105 @@
         </div>
     </section>
 
-    <script>
-        function openLoginModal(role) {
-            const modal = document.getElementById('loginModal');
-            modal.classList.add('modal-active');
-            switchRole(role);
-        }
+    <section id="features" class="bg-white border-y border-slate-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <p class="text-base font-semibold text-slate-600 leading-relaxed">
+                    Powerful tools and resources designed specifically for pharmacy students and professionals
+                </p>
+            </div>
 
-        function closeLoginModal() {
-            const modal = document.getElementById('loginModal');
-            modal.classList.remove('modal-active');
-            document.getElementById('otpInputBlock').classList.add('hidden');
-        }
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-folder-open"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Comprehensive Library</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Access thousands of pharmacy notes covering all major subjects and specializations.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Smart Search</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Find exactly what you need with advanced filtering and intelligent search capabilities.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Expert Community</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Learn from experienced pharmacists and healthcare professionals worldwide.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Create & Share</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Contribute your own notes and share knowledge with the pharmacy community.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Verified Content</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">All notes are reviewed by qualified pharmacists to ensure accuracy and quality.</p>
+                </div>
+                <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs hover:shadow-xs transition">
+                    <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-slate-900 mb-2">Offline Access</h4>
+                    <p class="text-sm text-slate-500 leading-relaxed">Download notes for offline studying and access them anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function switchRole(role) {
-            const studentInterface = document.getElementById('studentLoginInterface');
-            const adminInterface = document.getElementById('adminLoginInterface');
-            const studentBtn = document.getElementById('studentTabBtn');
-            const adminBtn = document.getElementById('adminTabBtn');
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-2xs">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-400">PS</div>
+                    <div>
+                        <h5 class="text-sm font-bold text-slate-900">Priya Sharma</h5>
+                        <p class="text-xs text-slate-400">PharmD Student</p>
+                    </div>
+                </div>
+                <div class="text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-slate-500 italic leading-relaxed">"MedNotesIN has been a game-changer for my pharmacy studies. The notes are comprehensive, well-organized, and exactly what I need for exam preparation."</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-2xs">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-400">RK</div>
+                    <div>
+                        <h5 class="text-sm font-bold text-slate-900">Rajesh Kumar</h5>
+                        <p class="text-xs text-slate-400">Clinical Pharmacist</p>
+                    </div>
+                </div>
+                <div class="text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-slate-500 italic leading-relaxed">"As a practicing pharmacist, I use MedNotesIN daily for quick reference. The quality of content and easy navigation make it an invaluable resource."</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-2xs">
+                <div class="flex items-center space-x-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-400">AD</div>
+                    <div>
+                        <h5 class="text-sm font-bold text-slate-900">Anita Desai</h5>
+                        <p class="text-xs text-slate-400">Pharmacy Lecturer</p>
+                    </div>
+                </div>
+                <div class="text-amber-400 text-xs mb-3">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-xs text-slate-500 italic leading-relaxed">"I recommend MedNotesIN to all my students. The platform provides excellent study material and helps them stay updated with the latest pharmaceutical knowledge."</p>
+            </div>
+        </div>
+    </section>
 
-            if (role === 'student') {
-                studentInterface.classList.remove('hidden');
-                adminInterface.classList.add('hidden');
-                studentBtn.classList.add('tab-active');
-                adminBtn.classList.remove('tab-active');
-            } else {
-                adminInterface.classList.remove('hidden');
-                studentInterface.classList.add('hidden');
-                adminBtn.classList.add('tab-active');
-                studentBtn.classList.remove('tab-active');
-            }
-        }
-
-        function triggerOtpSent() {
-            const contactInput = document.getElementById('studentContactInput').value;
-            if (!contactInput.trim()) {
-                alert('Please enter a valid Phone number or Email first!');
-                return;
-            }
-            // Animate and show the OTP Block layout
-            const otpBlock = document.getElementById('otpInputBlock');
-            otpBlock.classList.remove('hidden');
-        }
-    </script>
-</body>
-    </html>
-            
+    <section id="about" class="max-w-5xl mx-auto px-4 py-12 text-center border-t border-slate-200/60">
+        <span class="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">About Us</span>
+        <h2 class="text-3x
