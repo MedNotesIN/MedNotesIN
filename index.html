@@ -3,35 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedNotesIN</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MedNotesIN - Your Complete Pharmacy Knowledge Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfd;
+        }
+    </style>
 </head>
+<body class="antialiased text-gray-800">
 
-<body>
+    <nav class="bg-white border-b border-gray-100 px-6 py-4 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center gap-2">
+            <div class="bg-teal-600 text-white p-1.5 rounded">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <span class="text-xl font-bold text-teal-600">MedNotes<span class="text-orange-500">IN</span></span>
+        </div>
+        
+        <div class="hidden md:flex gap-8 text-gray-600 font-medium text-sm">
+            <a href="#home" class="hover:text-teal-600 transition">Home</a>
+            <a href="#categories" class="hover:text-teal-600 transition">Categories</a>
+            <a href="#about" class="hover:text-teal-600 transition">About</a>
+            <a href="#contact" class="hover:text-teal-600 transition">Contact</a>
+        </div>
 
-<header>
-    <h1>MedNotesIN</h1>
-    <p>Your Simple Medical Notes App (Auto Save Enabled)</p>
-</header>
+        <div class="flex items-center gap-4">
+            <a href="#" class="text-sm font-medium text-gray-600 hover:text-teal-600 hidden md:block">Sign In</a>
+            <a href="#" class="bg-teal-600 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-teal-700 transition shadow-sm">Get Started</a>
+        </div>
+    </nav>
 
-<div class="container">
+    <header id="home" class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 bg-white shadow-sm text-xs font-medium text-gray-600 mb-8">
+            <span class="text-teal-600">📈</span> Trusted by 50,000+ Pharmacy Professionals
+        </div>
 
-    <div class="card">
-        <h2>Add New Note</h2>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-950 tracking-tight leading-tight mb-6">
+            Your Complete <br>
+            <span class="text-teal-600">Pharmacy Knowledge</span> <br>
+            <span class="text-orange-500">Hub</span>
+        </h1>
 
-        <input type="text" id="title" placeholder="Enter title">
+        <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Access comprehensive pharmacy notes, study materials, and expert insights. Learn from the best and excel in your pharmaceutical career.
+        </p>
 
-        <textarea id="content" rows="5" placeholder="Enter note content"></textarea>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+            <a href="#categories" class="bg-teal-600 text-white px-8 py-3 rounded-md font-medium hover:bg-teal-700 transition shadow-md flex items-center justify-center gap-2">
+                Start Learning Free 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+            <a href="#categories" class="bg-white text-teal-700 border border-teal-200 px-8 py-3 rounded-md font-medium hover:bg-teal-50 transition shadow-sm">
+                Browse Notes
+            </a>
+        </div>
 
-        <button onclick="addNote()">Add Note</button>
-    </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-100 max-w-4xl mx-auto">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">50,000+</h3>
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Active Users</p>
+            </div>
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">15,000+</h3>
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Notes Available</p>
+            </div>
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">500+</h3>
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Expert Contributors</p>
+            </div>
+            <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900">200+</h3>
+                <p class="text-xs text-gray-500 font-semibold uppercase tracking-wider mt-1">Universities</p>
+            </div>
+        </div>
+    </header>
 
-    <div id="notesContainer"></div>
+    <section id="categories" class="bg-gray-50 py-16 px-6 border-t border-b border-gray-100">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-teal-500 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">💊</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Pharmacology</h3>
+                    <p class="text-sm text-gray-500 mb-6">Drug mechanisms, interactions, and therapeutic uses</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">156 Notes</span>
+                        <a href="#" class="text-teal-600 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
 
-</div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-blue-500 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">🩺</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Clinical Pharmacy</h3>
+                    <p class="text-sm text-gray-500 mb-6">Patient care, medication therapy management</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">98 Notes</span>
+                        <a href="#" class="text-blue-600 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
 
-<script src="data.js"></script>
-<script src="script.js"></script>
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-orange-400 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">⚗️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Pharmaceutical Chemistry</h3>
+                    <p class="text-sm text-gray-500 mb-6">Drug synthesis, analysis, and formulation</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">142 Notes</span>
+                        <a href="#" class="text-orange-500 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-emerald-500 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">🌿</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Pharmacognosy</h3>
+                    <p class="text-sm text-gray-500 mb-6">Natural products and herbal medicine</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">87 Notes</span>
+                        <a href="#" class="text-emerald-600 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-indigo-500 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">📖</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Drug Information</h3>
+                    <p class="text-sm text-gray-500 mb-6">Evidence-based medicine and resources</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">124 Notes</span>
+                        <a href="#" class="text-indigo-600 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border-t-4 border-red-500 hover:shadow-md transition">
+                    <div class="bg-gray-100 w-10 h-10 rounded-lg flex items-center justify-center mb-4 text-gray-700 font-bold">⚠️</div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">Toxicology</h3>
+                    <p class="text-sm text-gray-500 mb-6">Adverse effects and poison management</p>
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-gray-400">73 Notes</span>
+                        <a href="#" class="text-red-500 flex items-center gap-1 hover:underline">Explore &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            
+            <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600 text-sm">PS</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-900 leading-tight">Priya Sharma</h4>
+                        <span class="text-xs text-gray-400">PharmD Student</span>
+                    </div>
+                </div>
+                <div class="text-orange-400 text-sm mb-3">★★★★★</div>
+                <p class="text-xs text-gray-500 italic leading-relaxed">
+                    "MedNotesIN has been a game-changer for my pharmacy studies. The notes are comprehensive, well-organized, and exactly what I need for exam preparation."
+                </p>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600 text-sm">RK</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-900 leading-tight">Rajesh Kumar</h4>
+                        <span class="text-xs text-gray-400">Clinical Pharmacist</span>
+                    </div>
+                </div>
+                <div class="text-orange-400 text-sm mb-3">★★★★★</div>
+                <p class="text-xs text-gray-500 italic leading-relaxed">
+                    "As a practicing pharmacist, I use MedNotesIN daily for quick reference. The quality of content and easy navigation make it an invaluable resource."
+                </p>
+            </div>
+
+            <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600 text-sm">AD</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-gray-900 leading-tight">Anita Desai</h4>
+                        <span class="text-xs text-gray-400">Pharmacy Lecturer</span>
+                    </div>
+                </div>
+                <div class="text-orange-400 text-sm mb-3">★★★★★</div>
+                <p class="text-xs text-gray-500 italic leading-relaxed">
+                    "I recommend MedNotesIN to all my students. The platform provides excellent study material and helps them stay updated with the latest pharmaceutical knowledge."
+                </p>
+            </div>
+
+        </div>
+
+        <div id="about" class="pt-12 border-t border-gray-100 text-center max-w-4xl mx-auto">
+            <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold">About Us</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-950 mt-4 mb-6">Empowering Pharmacy Education</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left items-center mt-8">
+                <div class="text-sm text-gray-600 space-y-4 leading-relaxed">
+                    <p>
+                        MedNotesIN was founded with a mission to democratize pharmacy education and make quality study materials accessible to every pharmacy student and professional in India.
+                    </p>
+                    <p>
+                        We believe that knowledge should be shared freely, helping individuals excel in their academic journeys and pharmaceutical careers without barriers.
+                    </p>
+                </div>
+                
+                <div class="flex gap-4 justify-center md:justify-end">
+                    <div class="bg-emerald-50 p-6 rounded-xl text-center w-36 border border-emerald-100 shadow-sm">
+                        <span class="text-xl font-bold text-emerald-600 block">15,000+</span>
+                        <span class="text-xs text-emerald-700 font-medium">Notes Available</span>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-xl text-center w-36 border border-blue-100 shadow-sm">
+                        <span class="text-xl font-bold text-blue-600 block">50,000+</span>
+                        <span class="text-xs text-blue-700 font-medium">Active Users</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-900 text-gray-400 text-xs py-8 mt-12 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-semibold text-gray-300 text-sm">MedNotesIN</p>
+                <p class="mt-1 text-gray-500">&copy; 2026 MedNotesIN. All rights reserved.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+                <a href="#" class="hover:text-white transition">Contact Support</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
-</html>
+            </html>
