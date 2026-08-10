@@ -1,267 +1,594 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedNotesIN - Pharmacy Knowledge Hub</title>
-    <!-- Tailwind CSS for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for professional icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        // Custom branding colors matching a pharmacy theme
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        medical: '#0ea5e9', // Sky blue
-                        medicalDark: '#0369a1',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+    
+    <!-- 5. SEO Meta Tags -->
+    <title>MedNotesIN - Free Medical & Pharmacy Notes Hub (D-Pharm, B-Pharm, M-Pharm)</title>
+    <meta name="description" content="Download standard notes for D-Pharm, B-Pharm, M-Pharm (QA), and GPAT competitive exams for free. Standardized notes, syllabus, and study material.">
+    <meta name="keywords" content="Pharmacy Notes, D-Pharm Notes, B-Pharm Notes, Quality Assurance, GPAT Preparation, MedNotesIN">
+    <meta name="author" content="MedNotesIN">
 
-    <!-- 1. NAVIGATION BAR -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-file-medical text-3xl text-medical mr-2"></i>
-                    <span class="text-xl font-bold tracking-wide text-gray-900">MedNotes<span class="text-medical">IN</span></span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-600 hover:text-medical font-medium transition">Home</a>
-                    <a href="#notes" class="text-gray-600 hover:text-medical font-medium transition">Explore Notes</a>
-                    <a href="#stats" class="text-gray-600 hover:text-medical font-medium transition">Impact</a>
-                    <button onclick="toggleModal('login-modal')" class="bg-medical text-white px-5 py-2 rounded-full hover:bg-medicalDark font-medium transition shadow-md">Sign In</button>
-                </div>
+    <!-- 5. Google Analytics Setup (Replace YOUR_TRACKING_ID with real GA ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_TRACKING_ID');
+    </script>
+    -->
+
+    <!-- Font Awesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: #0f172a;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Community Header Buttons */
+        .btn-social {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-whatsapp { background-color: #25D366; }
+        .btn-whatsapp:hover { background-color: #1eb854; }
+
+        .btn-telegram { background-color: #0088cc; }
+        .btn-telegram:hover { background-color: #0077b5; }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-container h1 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .hero-container h1 span {
+            color: #2563eb;
+        }
+
+        .hero-container p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #2563eb;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        /* Stats Section */
+        #stats {
+            background-color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .stat-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Notes Section & Category Filters */
+        #notes {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: #0f172a;
+        }
+
+        /* 2. Category Filter Buttons */
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .cat-btn {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cat-btn.active, .cat-btn:hover {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .note-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .note-tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+            align-self: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .note-card h3 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-card p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-download {
+            background-color: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: #1d4ed8;
+        }
+
+        .no-results {
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 3rem;
+            color: #64748b;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-about .logo {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-form h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .footer-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-form input, .footer-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 6px;
+            border: 1px solid #334155;
+            background-color: #1e293b;
+            color: #ffffff;
+            outline: none;
+        }
+
+        .footer-form button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 1.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-notes-medical"></i>
+                <span>MedNotes<span>IN</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#notes">Notes</a>
+                <!-- 4. Community Links -->
+                <a href="https://chat.whatsapp.com/YOUR_WHATSAPP_LINK" target="_blank" class="btn-social btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/YOUR_TELEGRAM_LINK" target="_blank" class="btn-social btn-telegram">
+                    <i class="fa-brands fa-telegram"></i> Telegram
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- 2. HERO SECTION -->
-    <section id="home" class="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-sky-50">
-        <div class="max-w-5xl mx-auto text-center px-4">
-            <span class="bg-sky-100 text-medicalDark text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Pharmacy Knowledge Hub</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mt-4 leading-tight">
-                Your Ultimate Destination for <br><span class="text-medical">Medical & Pharmacy Notes</span>
-            </h1>
-            <p class="text-gray-500 mt-6 text-lg max-w-2xl mx-auto">
-                D-Pharm, B-Pharm, aur Competitive Exams ke sabhi standardized notes ab ek hi jagah par. Kisi bhi subject ko search karein aur turant download karein.
-            </p>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-container">
+            <span class="badge">Pharmacy Knowledge Hub</span>
+            <h1>Your Ultimate Destination for <br><span>Medical & Pharmacy Notes</span></h1>
+            <p>D-Pharm, B-Pharm, M-Pharm aur Competitive Exams ke sabhi standardized notes ab ek hi jagah par.</p>
             
-            <!-- LIVE SEARCH BAR -->
-            <div class="mt-10 max-w-xl mx-auto relative">
-                <div class="flex items-center bg-white rounded-full shadow-xl border border-gray-100 p-2">
-                    <i class="fa-solid fa-magnifying-glass text-gray-400 ml-4 mr-2"></i>
-                    <input type="text" id="searchInput" onkeyup="searchNotes()" placeholder="Search notes (e.g., Pharmacology, Pharmaceutics...)" class="w-full px-2 py-3 text-gray-700 focus:outline-none rounded-full">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search subject (e.g. Pharmacology, Quality Assurance)..." onkeyup="filterNotes()">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>1,240+</h3>
+                <p>Total Web Visits</p>
+            </div>
+            <div class="stat-card">
+                <h3>500+</h3>
+                <p>Standard PDFs</p>
+            </div>
+            <div class="stat-card">
+                <h3>10k+</h3>
+                <p>Happy Students</p>
+            </div>
+            <div class="stat-card">
+                <h3>100%</h3>
+                <p>Free Content</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notes Section -->
+    <section id="notes">
+        <div class="section-header">
+            <h2>Available Pharmacy Notes</h2>
+            <p>Apne course ke hisab se filter karein aur direct PDF download karein.</p>
+        </div>
+
+        <!-- 2. Category Filter Buttons -->
+        <div class="category-container">
+            <button class="cat-btn active" onclick="filterCategory('all')">All Notes</button>
+            <button class="cat-btn" onclick="filterCategory('dpharm')">D-Pharm</button>
+            <button class="cat-btn" onclick="filterCategory('bpharm')">B-Pharm</button>
+            <button class="cat-btn" onclick="filterCategory('mpharm')">M-Pharm / QA</button>
+            <button class="cat-btn" onclick="filterCategory('gpat')">GPAT / Competitive</button>
+        </div>
+
+        <div class="notes-grid" id="notesGrid">
+            
+            <!-- 1. Actual PDF Links Setup (Apna Google Drive link 'href' me dalein) -->
+            <div class="note-card" data-category="bpharm">
+                <div>
+                    <span class="note-tag">B-PHARM</span>
+                    <h3>Pharmacology - I</h3>
+                    <p>Complete unit-wise notes covering ANS, CNS, and General Pharmacology.</p>
                 </div>
+                <a href="https://drive.google.com/YOUR_PDF_LINK_HERE" target="_blank" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
             </div>
-        </div>
-    </section>
 
-    <!-- 3. LIVE VISITS & STATISTICS -->
-    <section id="stats" class="bg-white py-10 border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <p class="text-3xl font-bold text-medical" id="visitCounter">1,240+</p>
-                <p class="text-sm text-gray-500 font-medium mt-1">Total Web Visits</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-gray-900">500+</p>
-                <p class="text-sm text-gray-500 font-medium mt-1">Standard PDFs</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-gray-900">10k+</p>
-                <p class="text-sm text-gray-500 font-medium mt-1">Happy Students</p>
-            </div>
-            <div>
-                <p class="text-3xl font-bold text-gray-900">100%</p>
-                <p class="text-sm text-gray-500 font-medium mt-1">Free Content</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. NOTES SECTION (DYNAMIC CONTENT) -->
-    <section id="notes" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900">Available Pharmacy Notes</h2>
-                <p class="text-gray-500 mt-2">Apne zarurat ke subject ke samne diye gaye button se direct PDF access karein.</p>
-            </div>
-        </div>
-
-        <!-- Notes Grid container -->
-        <div id="notesGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- JavaScript automatic variables input content here -->
-        </div>
-
-        <!-- No Results Alert -->
-        <div id="noResults" class="hidden text-center py-12">
-            <i class="fa-regular fa-folder-open text-5xl text-gray-300 mb-4"></i>
-            <p class="text-gray-500 text-lg">Koi match nahi mila. Doosra topic search karein!</p>
-        </div>
-    </section>
-
-    <!-- 5. FOOTER & LIVE CONTACT FORM -->
-    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-                <div class="flex items-center text-white mb-4">
-                    <i class="fa-solid fa-file-medical text-2xl text-medical mr-2"></i>
-                    <span class="text-lg font-bold">MedNotes<span class="text-medical">IN</span></span>
+            <div class="note-card" data-category="bpharm">
+                <div>
+                    <span class="note-tag">B-PHARM</span>
+                    <h3>Pharmaceutical Jurisprudence</h3>
+                    <p>Drug & Cosmetics Act, Pharmacy Act, and Legal regulations simplified.</p>
                 </div>
-                <p class="text-sm leading-relaxed max-w-sm">
-                    Pharmacy education ko aasan aur sabhi ke liye free banane ki ek choti si koshish. Kisi bhi feedback ya query ke liye right side diye form se contact karein.
-                </p>
-                <p class="text-xs text-gray-600 mt-8">© 2026 MedNotesIN. Built with GitHub Pages.</p>
+                <a href="https://drive.google.com/YOUR_PDF_LINK_HERE" target="_blank" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+            </div>
+
+            <div class="note-card" data-category="mpharm">
+                <div>
+                    <span class="note-tag">M-PHARM / QA</span>
+                    <h3>Quality Management System (QMS)</h3>
+                    <p>Standard Quality Manuals, Validation, ISO 9001, and Regulatory Gap Analysis.</p>
+                </div>
+                <a href="https://drive.google.com/YOUR_PDF_LINK_HERE" target="_blank" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+            </div>
+
+            <div class="note-card" data-category="dpharm">
+                <div>
+                    <span class="note-tag">D-PHARM</span>
+                    <h3>Pharmaceutics - I</h3>
+                    <p>Basic dosage forms, mixing, filtration, and pharmaceutical calculations.</p>
+                </div>
+                <a href="https://drive.google.com/YOUR_PDF_LINK_HERE" target="_blank" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+            </div>
+
+            <div class="note-card" data-category="gpat">
+                <div>
+                    <span class="note-tag">GPAT / EXAMS</span>
+                    <h3>Pharmacology Quick Revision Guide</h3>
+                    <p>High-yield tables, drug classification shortcuts, and previous MCQs.</p>
+                </div>
+                <a href="https://drive.google.com/YOUR_PDF_LINK_HERE" target="_blank" class="btn-download">
+                    <i class="fa-solid fa-file-pdf"></i> Download PDF
+                </a>
+            </div>
+
+        </div>
+
+        <div class="no-results" id="noResults">
+            <i class="fa-solid fa-face-frown fa-2x"></i>
+            <p style="margin-top: 0.5rem;">Koi match nahi mila. Doosra topic ya category select karein!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="logo">
+                    <i class="fa-solid fa-notes-medical"></i>
+                    <span>MedNotes<span>IN</span></span>
+                </div>
+                <p>Pharmacy education ko aasan aur sabhi ke liye free banane ki ek choti si koshish.</p>
             </div>
             
-            <!-- Live Email Action Form -->
-            <div>
-                <h3 class="text-white font-semibold mb-4">Direct Message/Feedback</h3>
-                <!-- Yahan apni Formspree ID daalein jab aap account bana lein -->
-                <form action="https://formspree.io/f/sample_id" method="POST" class="space-y-3">
-                    <input type="email" name="email" placeholder="Your Email Address" required class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-medical text-white text-sm">
-                    <textarea name="message" rows="3" placeholder="Apna message ya suggestion likhein..." required class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:border-medical text-white text-sm"></textarea>
-                    <button type="submit" class="w-full bg-medical text-white py-2 rounded font-medium hover:bg-medicalDark transition text-sm">Send Message</button>
+            <!-- 3. Working Formspree Contact Form -->
+            <div class="footer-form">
+                <h3>Direct Message / Request Notes</h3>
+                <!-- Replace 'YOUR_FORMSPREE_ID' with your actual Formspree ID -->
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="3" placeholder="Which notes do you need?" required></textarea>
+                    <button type="submit">Send Request</button>
                 </form>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>© 2026 MedNotesIN. Built with GitHub Pages.</p>
+        </div>
     </footer>
 
-    <!-- 6. SIGN IN POPUP MODAL -->
-    <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-sm w-full p-6 relative shadow-2xl">
-            <button onclick="toggleModal('login-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-            <div class="text-center">
-                <i class="fa-solid fa-circle-user text-5xl text-medical mb-3"></i>
-                <h3 class="text-xl font-bold text-gray-900">Welcome Back</h3>
-                <p class="text-gray-400 text-sm mt-1">MedNotesIN Premium Access</p>
-            </div>
-            <div class="mt-6 space-y-3">
-                <button onclick="alert('Google login functionality backend se connect honi baaki hai.')" class="w-full flex items-center justify-center border border-gray-200 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
-                    <i class="fa-brands fa-google text-red-500 mr-2"></i> Continue with Google
-                </button>
-                <button onclick="toggleModal('login-modal')" class="w-full bg-gray-100 text-gray-700 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-200 transition">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 7. JAVASCRIPT LOGIC (FUNCTIONALITY) -->
+    <!-- Filter & Search Script -->
     <script>
-        // --- DATA OBJECT (Yahan aap apne PDFs/Google Drive ke exact links badal sakte hain) ---
-        const notesData = [
-            {
-                title: "Pharmacology - I",
-                category: "B-Pharm / D-Pharm",
-                description: "Introduction to pharmacology, routes of administration, and detailed mechanism of action of drugs.",
-                link: "https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_LINK", // Replace with real URL
-                icon: "fa-capsules text-red-500 bg-red-50"
-            },
-            {
-                title: "Pharmaceutics Practical Guide",
-                category: "D-Pharm 1st Year",
-                description: "Step-by-step preparation of syrups, elixirs, ointments, and calculation of posology formulas.",
-                link: "https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_LINK", 
-                icon: "fa-flask text-teal-500 bg-teal-50"
-            },
-            {
-                title: "Pharmaceutical Chemistry",
-                category: "B-Pharm 2nd Sem",
-                description: "Structure, nomenclature, chemical properties, and stability guidelines of inorganic compounds.",
-                link: "https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_LINK",
-                icon: "fa-atom text-purple-500 bg-purple-50"
-            },
-            {
-                title: "Human Anatomy & Physiology (HAP)",
-                category: "All Medical Students",
-                description: "Comprehensive notes covering the skeletal system, cardiovascular mechanisms, and nervous tissue functions.",
-                link: "https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_LINK",
-                icon: "fa-heart-pulse text-rose-500 bg-rose-50"
-            },
-            {
-                title: "Pharmacognosy & Phytochemistry",
-                category: "B-Pharm 4th Sem",
-                description: "Study of crude drugs obtained from natural plant sources, cultivation techniques, and evaluation metrics.",
-                link: "https://drive.google.com/drive/folders/YOUR_GOOGLE_DRIVE_LINK",
-                icon: "fa-leaf text-green-500 bg-green-50"
-            }
-        ];
+        let currentCategory = 'all';
 
-        // --- DISPLAY FUNCTION ---
-        function renderNotes(data) {
-            const container = document.getElementById('notesGrid');
-            const noResults = document.getElementById('noResults');
-            container.innerHTML = '';
+        // Filter by Category Buttons
+        function filterCategory(category) {
+            currentCategory = category;
             
-            if(data.length === 0) {
-                noResults.classList.remove('hidden');
-                return;
+            // Active Button Styling
+            let buttons = document.getElementsByClassName('cat-btn');
+            for (let btn of buttons) {
+                btn.classList.remove('active');
             }
-            noResults.classList.add('hidden');
+            event.target.classList.add('active');
 
-            data.forEach(note => {
-                const card = `
-                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-xs font-bold text-medicalDark bg-sky-50 px-2.5 py-1 rounded-md uppercase">${note.category}</span>
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center text-lg ${note.icon.split(' ')[1]} ${note.icon.split(' ')[2]}">
-                                    <i class="fa-solid ${note.icon.split(' ')[0]}"></i>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-900 mb-2">${note.title}</h3>
-                            <p class="text-gray-500 text-sm leading-relaxed mb-6">${note.description}</p>
-                        </div>
-                        <a href="${note.link}" target="_blank" class="w-full text-center bg-gray-900 text-white font-medium py-2.5 rounded-xl hover:bg-medical transition flex items-center justify-center text-sm">
-                            <i class="fa-solid fa-circle-arrow-down mr-2"></i> Access / Download PDF
-                        </a>
-                    </div>
-                `;
-                container.innerHTML += card;
-            });
+            applyFilters();
         }
 
-        // --- REAL-TIME SEARCH FILTER ---
-        function searchNotes() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filteredData = notesData.filter(note => 
-                note.title.toLowerCase().includes(query) || 
-                note.category.toLowerCase().includes(query) ||
-                note.description.toLowerCase().includes(query)
-            );
-            renderNotes(filteredData);
+        // Search Bar Filtering
+        function filterNotes() {
+            applyFilters();
         }
 
-        // --- INTERACTIVE VISITS COUNTER (LOCALSTORAGE BASIS) ---
-        function handleVisits() {
-            let currentVisits = localStorage.getItem('site_visits');
-            if (!currentVisits) {
-                currentVisits = 1242; // Dummy dynamic seed starting number
-            } else {
-                currentVisits = parseInt(currentVisits) + 1;
+        // Combined Filter Function
+        function applyFilters() {
+            let searchInput = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('note-card');
+            let hasResults = false;
+
+            for (let card of cards) {
+                let title = card.getElementsByTagName('h3')[0].innerText.toLowerCase();
+                let desc = card.getElementsByTagName('p')[0].innerText.toLowerCase();
+                let cardCategory = card.getAttribute('data-category');
+
+                let matchesSearch = title.includes(searchInput) || desc.includes(searchInput);
+                let matchesCategory = (currentCategory === 'all') || (cardCategory === currentCategory);
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = "flex";
+                    hasResults = true;
+                } else {
+                    card.style.display = "none";
+                }
             }
-            localStorage.setItem('site_visits', currentVisits);
-            document.getElementById('visitCounter').innerText = currentVisits.toLocaleString() + "+";
-        }
 
-        // --- DIALOG MODAL TOGGLE ---
-        function toggleModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.toggle('hidden');
+            document.getElementById('noResults').style.display = hasResults ? "none" : "block";
         }
-
-        // Initialize script logic upon loading page
-        window.onload = function() {
-            renderNotes(notesData);
-            handleVisits();
-        };
     </script>
 </body>
 </html>
