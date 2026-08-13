@@ -4,7 +4,7 @@ import type { Note } from "@/lib/notes-data"
 
 export function NoteCard({ note }: { note: Note }) {
   return (
-    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+    <article className="flex h-full flex-col rounded-xl border border-border bg-card p-5 shadow-sm sm:hover:border-primary/40 sm:hover:shadow-md">
       <div className="flex items-center justify-between gap-2">
         <span className="inline-flex items-center gap-1.5 rounded-md bg-secondary px-2 py-1 text-xs font-medium text-secondary-foreground">
           <FileText className="size-3.5" />
