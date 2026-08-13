@@ -16,7 +16,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 isolate border-b border-border bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <a href="#home" className="flex items-center gap-2.5" aria-label="MedNotesIN home">
           <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
