@@ -54,10 +54,10 @@ export function BranchSection({ branch }: { branch: Branch }) {
                 role="tab"
                 aria-selected={selected}
                 onClick={() => setActiveYear(year.year)}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                className={`appearance-none rounded-full border px-4 py-2 text-sm font-medium touch-manipulation transition-none ${
                   selected
                     ? "border-primary bg-primary text-primary-foreground"
-                    : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                    : "border-border bg-card text-muted-foreground sm:hover:border-primary/40 sm:hover:text-foreground"
                 }`}
               >
                 {year.label}
