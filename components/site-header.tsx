@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "B-Pharmacy", href: "#b-pharm" },
   { label: "D-Pharmacy", href: "#d-pharm" },
+  { label: "All Courses", href: "#course-directory" },
   { label: "Contact", href: "#contact" },
 ]
 

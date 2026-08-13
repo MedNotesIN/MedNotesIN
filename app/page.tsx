@@ -3,7 +3,8 @@ import { HeroSection } from "@/components/hero-section"
 import { BranchSection } from "@/components/branch-section"
 import { LoginSection } from "@/components/login-section"
 import { SiteFooter } from "@/components/site-footer"
-import { branches } from "@/lib/notes-data"
+import { branches, courseCatalog } from "@/lib/notes-data"
+import { CourseDirectory } from "@/components/course-directory"
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   ? process.env.NEXT_PUBLIC_SITE_URL
@@ -41,6 +42,7 @@ export default function Page() {
         <HeroSection />
         <BranchSection branch={bPharm} />
         <BranchSection branch={dPharm} />
+        <CourseDirectory courses={courseCatalog} />
         <LoginSection />
       </main>
       <SiteFooter />

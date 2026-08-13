@@ -198,6 +198,106 @@ export const branches: Branch[] = [
   },
 ]
 
+export type CourseEntry = {
+  id: string
+  course: string
+  subtitle: string
+  duration: string
+  syllabusStatus: "sample-pending"
+  years: {
+    year: string
+    semesters: {
+      semester: string
+      subjects: {
+        name: string
+        units: string[]
+        driveUrl?: string
+      }[]
+    }[]
+  }[]
+}
+
+const sampleSubject = (name: string, units: string[]) => ({ name, units })
+
+export const courseCatalog: CourseEntry[] = [
+  {
+    id: "m-pharm",
+    course: "M-Pharm",
+    subtitle: "Master of Pharmacy",
+    duration: "2 Years · 4 Semesters",
+    syllabusStatus: "sample-pending",
+    years: [
+      { year: "First Year", semesters: [
+        { semester: "Semester I", subjects: [sampleSubject("Advanced Pharmaceutics", ["Drug delivery systems", "Advanced formulation design", "Biopharmaceutics"]), sampleSubject("Research Methodology", ["Research design", "Data collection", "Scientific writing"])] },
+        { semester: "Semester II", subjects: [sampleSubject("Advanced Pharmacology", ["Molecular pharmacology", "Drug targets", "Safety pharmacology"]), sampleSubject("Pharmaceutical Management", ["Quality systems", "Regulatory affairs", "Project planning"])] },
+      ] },
+      { year: "Second Year", semesters: [
+        { semester: "Semester III", subjects: [sampleSubject("Dissertation", ["Literature review", "Method validation", "Research execution"])] },
+        { semester: "Semester IV", subjects: [sampleSubject("Dissertation & Viva", ["Results and discussion", "Thesis preparation", "Viva presentation"])] },
+      ] },
+    ],
+  },
+  {
+    id: "d-pharm-expanded",
+    course: "D-Pharmacy",
+    subtitle: "Diploma in Pharmacy · ER-2020",
+    duration: "2 Years · 4 Semesters",
+    syllabusStatus: "sample-pending",
+    years: [
+      { year: "First Year", semesters: [
+        { semester: "Semester I", subjects: [sampleSubject("Pharmaceutics", ["General pharmacy", "Dosage forms", "Dispensing"]), sampleSubject("Pharmaceutical Chemistry", ["Impurities", "Inorganic pharmaceuticals", "Limit tests"])] },
+        { semester: "Semester II", subjects: [sampleSubject("Pharmacognosy", ["Crude drugs", "Cultivation and collection", "Evaluation"]), sampleSubject("Human Anatomy & Physiology", ["Cells and tissues", "Body systems", "Homeostasis"])] },
+      ] },
+      { year: "Second Year", semesters: [
+        { semester: "Semester III", subjects: [sampleSubject("Pharmacology", ["General pharmacology", "ANS drugs", "Adverse drug reactions"]), sampleSubject("Community Pharmacy", ["Patient counselling", "Inventory", "Public health"])] },
+        { semester: "Semester IV", subjects: [sampleSubject("Pharmacotherapeutics", ["Cardiovascular diseases", "Infectious diseases", "Rational therapy"]), sampleSubject("Hospital & Clinical Pharmacy", ["Hospital organization", "Drug information", "Clinical services"])] },
+      ] },
+    ],
+  },
+  {
+    id: "mbbs",
+    course: "MBBS",
+    subtitle: "Bachelor of Medicine and Bachelor of Surgery",
+    duration: "4.5 Years + Internship",
+    syllabusStatus: "sample-pending",
+    years: [
+      { year: "First Year", semesters: [{ semester: "Pre-clinical", subjects: [sampleSubject("Anatomy", ["General anatomy", "Upper limb", "Thorax"]), sampleSubject("Physiology", ["Blood", "Nerve-muscle physiology", "Cardiovascular system"]), sampleSubject("Biochemistry", ["Biomolecules", "Enzymes", "Metabolism"])] }] },
+      { year: "Second Year", semesters: [{ semester: "Para-clinical", subjects: [sampleSubject("Pathology", ["Cell injury", "Inflammation", "Hematology"]), sampleSubject("Pharmacology", ["General pharmacology", "CNS drugs", "Chemotherapy"]), sampleSubject("Microbiology", ["Bacteriology", "Virology", "Immunology"])] }] },
+      { year: "Third Year", semesters: [{ semester: "Clinical", subjects: [sampleSubject("Community Medicine", ["Epidemiology", "Biostatistics", "National health programs"]), sampleSubject("Forensic Medicine", ["Medical jurisprudence", "Injuries", "Toxicology"])] }] },
+      { year: "Final Year", semesters: [{ semester: "Clinical", subjects: [sampleSubject("Medicine", ["Cardiology", "Respiratory medicine", "Neurology"]), sampleSubject("Surgery", ["General surgery", "Trauma", "Orthopedics"]), sampleSubject("Obstetrics & Gynaecology", ["Antenatal care", "Labour", "Gynaecology"])] }] },
+    ],
+  },
+  {
+    id: "neet",
+    course: "NEET",
+    subtitle: "National Eligibility cum Entrance Test",
+    duration: "Exam Preparation",
+    syllabusStatus: "sample-pending",
+    years: [{ year: "Complete Syllabus", semesters: [{ semester: "Physics", subjects: [sampleSubject("Physics", ["Mechanics", "Thermodynamics", "Electrodynamics"])] }, { semester: "Chemistry", subjects: [sampleSubject("Chemistry", ["Physical chemistry", "Organic chemistry", "Inorganic chemistry"])] }, { semester: "Biology", subjects: [sampleSubject("Biology", ["Botany", "Zoology", "Human physiology"])] }] }],
+  },
+  {
+    id: "rrb-paramedical",
+    course: "RRB Paramedical Staff",
+    subtitle: "Railway Recruitment Board preparation",
+    duration: "Exam Preparation",
+    syllabusStatus: "sample-pending",
+    years: [{ year: "Complete Syllabus", semesters: [{ semester: "Core Subjects", subjects: [sampleSubject("Professional Ability", ["Nursing and paramedical basics", "Patient care", "First aid"]), sampleSubject("General Awareness", ["Current affairs", "Indian polity", "General science"])] }] }],
+  },
+  {
+    id: "bsc-nursing",
+    course: "BSc Nursing",
+    subtitle: "Bachelor of Science in Nursing",
+    duration: "4 Years · 8 Semesters",
+    syllabusStatus: "sample-pending",
+    years: [
+      { year: "First Year", semesters: [{ semester: "Semester I", subjects: [sampleSubject("Nursing Foundation", ["Basic nursing", "Health assessment", "Infection control"])] }, { semester: "Semester II", subjects: [sampleSubject("Nutrition & Dietetics", ["Nutrients", "Therapeutic diets", "Meal planning"])] }] },
+      { year: "Second Year", semesters: [{ semester: "Semester III", subjects: [sampleSubject("Medical-Surgical Nursing I", ["Care of adults", "Perioperative nursing", "Respiratory care"])] }, { semester: "Semester IV", subjects: [sampleSubject("Pharmacology", ["Drug administration", "Drug safety", "Common drug groups"])] }] },
+      { year: "Third Year", semesters: [{ semester: "Semester V", subjects: [sampleSubject("Child Health Nursing", ["Growth and development", "Pediatric care", "Common disorders"])] }, { semester: "Semester VI", subjects: [sampleSubject("Mental Health Nursing", ["Therapeutic communication", "Mental disorders", "Psychiatric care"])] }] },
+      { year: "Fourth Year", semesters: [{ semester: "Semester VII", subjects: [sampleSubject("Community Health Nursing", ["Community assessment", "Family health", "National programs"])] }, { semester: "Semester VIII", subjects: [sampleSubject("Midwifery & Obstetrical Nursing", ["Antenatal care", "Labour and delivery", "Postnatal care"])] }] },
+    ],
+  },
+]
+
 export const stats = [
   { value: "500+", label: "Study PDFs" },
   { value: "60+", label: "Subjects Covered" },
